@@ -19,14 +19,18 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: rgb(180, 200, 180);
+        /* background-color: rgb(194, 194, 194); */
+        background: linear-gradient(
+          to bottom,
+          rgb(255, 255, 255),
+          rgb(136, 169, 204)
+        );
         color: #232323;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
       main {
         text-align: center;
         padding: 20px;
-        width: 80%; /* Hauptinhalt nimmt 70% der Breite ein */
         margin: 0 auto; /* Zentriert den Inhalt horizontal */
       }
       .logo {
@@ -185,49 +189,126 @@
       .container {
         display: flex;
         gap: 20px;
+        flex-direction: column;
+        margin-top: 20px;
       }
 
       .box {
-        width: 100%;
         padding: 20px;
         background-color: rgba(0, 0, 0, 0.05);
         border-radius: 15px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         text-align: center;
       }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Hält die Wrapper-Höhe immer mindestens 100% der Ansicht */
+      }
+      main {
+        flex: 1; /* Hauptinhalt dehnt sich aus und schiebt den Footer nach unten */
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+      }
+      .divider {
+        width: 100%; /* oder eine feste Breite wie '300px' */
+        height: 1px; /* Höhe der Linie */
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgb(23, 23, 23),
+          transparent
+        ); /* Verblassende Enden */
+        margin: 20px 0; /* Abstand um die Linie */
+      }
+
+      .link {
+        text-decoration: none;
+        color: inherit;
+      }
+      .link::before {
+        content: "🔗"; /* Hier kannst du ein anderes Symbol oder Emoji verwenden */
+        margin-right: 3px; /* Abstand zwischen Symbol und Text */
+        font-size: 0.9em; /* Optional: Größe des Symbols anpassen */
+      }
+
+      p {
+        font-size: 15px;
+      }
     </style>
   </head>
   <body>
-    <main>
-      <!-- Logo -->
-      <img src="pub/Logo.png" class="logo" />
+    <div class="wrapper">
+      <main>
+        <!-- Logo -->
+        <img src="pub/Logo.png" class="logo" />
 
-      <!-- Container -->
-      <div class="container">
-        <div class="box">
-            <h1>Idee</h1>
-            <p>moin</p>
-        </div>
-        <div class="box">
-          <h1>Downloads</h1>
-          <p></p>
-          <div class="checkbox-wrapper-1">
-            <input
-              id="chkBoxDownload"
-              class="substituted"
-              type="checkbox"
-              aria-hidden="true"
-            />
-            <label for="chkBoxDownload"
-              >Ich verspreche, dass ich die Vorlage nicht für kommerzielle oder
-              illegale Zwecke verwende</label
-            >
+        <!-- Container -->
+        <div class="container">
+          <div class="box">
+            <h1>Bewegung</h1>
+            <p>
+              "Kunst über Werbung" ist eine Bewegung, die den öffentlichen Raum
+              zurückerobern will – weg von Werbeflächen, hin zu mehr Kunst.
+            </p>
+            <p>
+              Die Idee: Städte sollen schöner und inspirierender sein, mit Platz
+              für Graffiti, Skulpturen und andere kreative Werke von lokalen
+              Künstler*innen.
+            </p>
+            <p>
+              Statt ständig neue Produkte zu bewerben, könnte man den Leuten
+              zeigen, wie vielfältig und lebendig die Kunstszene ist.
+            </p>
+            <p>
+              Es geht darum, die Stadt zu einem Ort zu machen, der mehr zum
+              Staunen als zum Kaufen einlädt.
+            </p>
           </div>
-          <a href="pub/Vorlage.xcf" download>
-            <button disabled id="btnDownload">Vorlage herunterladen</button>
-          </a>
+          <div class="box">
+            <h1>Downloads</h1>
+            <p>Die hier angebotene Vorlage</p>
+            <div class="checkbox-wrapper-1">
+              <input
+                id="chkBoxDownload"
+                class="substituted"
+                type="checkbox"
+                aria-hidden="true"
+              />
+              <label for="chkBoxDownload"
+                >Ich verspreche, dass ich die Vorlage nicht für kommerzielle
+                oder illegale Zwecke verwende</label
+              >
+            </div>
+            <a href="pub/Vorlage.xcf" download>
+              <button disabled id="btnDownload">Vorlage herunterladen</button>
+            </a>
+          </div>
+          <div class="box">
+            <h1>Rechtliches</h1>
+            <p>
+              Wir unterstützen nicht das illegale Verbreiten dieser Message.
+            </p>
+            <p>
+              Dazu gehört das Bekleben von öffentlichem Eigentum ohne
+              Genehmigung
+            </p>
+            <p>oder das Verwenden von Kunst ohne Genehmigung.</p>
+            <p></p>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+      <footer>
+        <div class="divider"></div>
+        <a
+          class="link"
+          href="https://docs.github.com/en/site-policy/other-site-policies/guidelines-for-legal-requests-of-user-data"
+          >Legal</a
+        >
+      </footer>
+    </div>
   </body>
 </html>
